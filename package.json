@@ -12,7 +12,11 @@
     "build": "babel modules -d build/npm/modules --ignore '**/__tests__/**' --plugins transform-class-properties && gulp",
     "clean": "rm -rf build/npm/modules",
     "test": "karma start",
-    "start": "npm run examples"
+    "start": "npm run examples",
+    "publish:push": "git push --no-verify --follow-tags && npm publish",
+    "publish:push:major": "npm version major && npm run publish:push",
+    "publish:push:minor": "npm version minor && npm run publish:push",
+    "publish:push:patch": "npm version patch && npm run publish:push"
   },
   "homepage": "https://github.com/fisshy/react-scroll",
   "bugs": {
