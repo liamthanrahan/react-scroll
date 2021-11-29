@@ -113,7 +113,7 @@ const animateScroll = (easing, options, timestamp) => {
   // Cancel on specific events
   if (!options.ignoreCancelEvents && data.cancel) {
     if (events.registered['end']) {
-      events.registered['end'](data.to, data.target, data.currentPositionY);
+      events.registered['end'](data.to, data.target, data.currentPositionY, 'SCROLL_CANCELLED');
     }
     return
   };
@@ -186,7 +186,7 @@ const animateTopScroll = (scrollOffset, options, to, target) => {
 
   if (options.data.startPosition === options.data.targetPosition) {
     if (events.registered['end']) {
-      events.registered['end'](options.data.to, options.data.target, options.data.currentPosition);
+      events.registered['end'](options.data.to, options.data.target, options.data.currentPosition, 'SCROLL_COMPLETED');
     }
     return;
   }
